@@ -35,6 +35,122 @@
             padding: 2rem;
         }
 
+	  /* Sidebar Styling */
+        .sidebar {
+            position: fixed;
+            top: 4rem; /* Offset to account for the navbar */
+            left: 0;
+            width: 250px;
+            background-color: #3f8e41;
+            height: 100vh;
+			
+            padding: 1rem 0;
+            z-index: 20;
+            transition: all 0.3s ease;
+			 overflow-y: auto; /* Make sidebar scrollable */
+        }
+
+        .sidebar .brand {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.1rem;
+            padding: 0.1rem;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #FF0000;
+        }
+
+        /* Main Content Styling */
+        .content {
+            margin-left: 250px; /* Adjust for sidebar */
+            padding: 20px;
+            transition: margin-left 0.3s ease;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Mobile Responsive Styling */
+        @media (max-width: 768px) {
+            body {
+                margin-top: 5rem;
+            }
+
+            .navbar {
+                padding: 1rem 0.5rem;
+            }
+
+            /* Sidebar always visible on mobile */
+            .sidebar {
+                position: fixed;
+                top: 4rem;
+                left: 0;
+                width: 120px;  /* Same width as desktop layout */
+                height: 100vh;
+                background-color: #3f8e41;
+                z-index: 20;
+                transition: none;  /* Disable transition */
+				overflow-y: auto; /* Make sidebar scrollable */
+            }
+
+            /* Content margin adjustment for mobile */
+            .content {
+                margin-left: 120px; /* Same margin as desktop */
+            }
+           .sidebar.open {
+                left: 0; /* Show sidebar when open */
+            }
+            .sidebar a {
+                font-size: 1rem;
+                padding: 0.1rem;
+            }
+
+            /* Navbar Toggler */
+            .navbar-toggler {
+                background-color: #333;
+            }
+        }
+
+        /* Tablet and Laptop Responsive Styling */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .sidebar {
+                width: 150px;
+            }
+
+            .content {
+                margin-left: 250px; /* Adjusted for sidebar */
+            }
+        }
+
+        /* Desktop Styling */
+        @media (min-width: 1025px) {
+            .sidebar {
+                width: 150px;
+            }
+
+            .content {
+                margin-left: 250px; /* Adjusted for sidebar */
+            }
+        }  
+
 
         /* Footer */
         footer {
@@ -89,6 +205,161 @@
     <div class="intro-section">
         <h2 style="text-align: center; color: red; font-size: 2rem">Welcome to my website </h2><br>
           </div>
+	  <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <div class="brand">WebDev</div>
+        <ul>
+            <li><a href="#overview">What is Web Development?</a></li>
+            <li><a href="#types">Types of Web Development</a></li>
+            <li><a href="#front-end">Front-end Development</a></li>
+            <li><a href="#back-end">Back-end Development</a></li>
+            <li><a href="#full-stack">Full-stack Development</a></li>
+            <li><a href="#languages">Languages</a></li>
+            <li><a href="#html-overview">HTML Overview</a></li>
+			<li><a href="#html-benefits">Why HTML is Great for Beginners</a></li>
+        <li><a href="#html5-introduction">HTML5 Introduction</a></li>
+        <li><a href="#html-history">History of HTML</a></li>
+		
+		<li><a href="#html5-new">What is New in HTML5?</a></li>
+		<li><a href="#html-meaning">Why HTML is Great for Beginners</a></li>
+        <li><a href="#html-tools">Tools</a></li>
+        <li><a href="#html-save">Save HTML file</a></li>
+		<li><a href="#file-extensions">File Extensions</a></li>
+        <li><a href="#program">What is a Program?</a></li>
+		
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="content">
+        <header>
+            <h1 style="text-align: center; color: black; "><br>Web Development<br></h1>
+        </header>
+
+        <section id="overview">
+            <h2>What is Web Development?</h2>
+            <p>Web development, also known as website development, refers to the tasks associated with creating, building, and maintaining websites and web applications that run online on a browser.</p>
+        </section>
+
+        <section id="types">
+            <h2>Types of Web Development</h2>
+            <p>There are three main types of web development: front-end development, back-end development, and full-stack development.</p>
+        </section>
+
+        <section id="front-end">
+            <h2>Front-end Web Development</h2>
+            <p>The user-facing side of a website. Front-end web developers ensure that visitors can easily interact with and navigate through the website.</p>
+        </section>
+
+        <section id="back-end">
+            <h2>Back-end Web Development</h2>
+            <p>The server side of a website. In other words, this is the behind-the-scenes work that creates a website’s structure. The front end would not exist without the back end.</p>
+        </section>
+
+        <section id="full-stack">
+            <h2>Full-stack Web Development</h2>
+            <p>This takes into consideration the entirety of a website, including back-end and front-end development.</p>
+        </section>
+
+        <section id="languages">
+            <h2>Common Programming Languages in Web Development</h2>
+            <ul>
+                <li>HTML (Hypertext Markup Language)</li>
+                <li>CSS (Cascading Style Sheets)</li>
+                <li>JavaScript</li>
+            </ul>
+        </section>
+
+        <section id="html-overview">
+            <h2>HTML Overview</h2>
+            <p>HTML is the standard language used to create and design webpages. It's the most fundamental markup language used for structuring content on the web.</p>
+        </section>
+		
+    <!-- Section: Why HTML is Great for Beginners -->
+    <section id="html-benefits">
+        <h2>Why HTML is Great for Beginners</h2>
+        <ul>
+            <li><strong>Simple Syntax:</strong> HTML uses tags to define elements, which are easy to understand and use.</li>
+            <li><strong>Immediate Results:</strong> You can see the results of your HTML code almost instantly in a web browser.</li>
+        </ul>
+    </section>
+
+    <!-- Section: What is HTML? -->
+    <section id="html-definition">
+        <h2>What is HTML?</h2>
+        <p>HTML is used to structure content on the web. It tells the web browser how to display text, images, and other elements on a webpage.</p>
+        <p><strong>HTML = Like A, B, C</strong></p>
+    </section>
+
+    <!-- Section: HTML5 Introduction -->
+    <section id="html5-introduction">
+        <h2>HTML5 Introduction</h2>
+        <p>HTML5 is a markup language used for structuring and presenting content on the World Wide Web. It is the fifth and current version of the HTML standard. HTML5 includes detailed processing models to encourage more interoperable implementations; it extends, improves, and rationalizes the markup available for documents, and introduces markup and application programming interfaces (APIs) for complex web applications.</p>
+    </section>
+
+    <!-- Section: History of HTML -->
+    <section id="html-history">
+        <h2>History of HTML</h2>
+        <p>Since the early days of the web, there have been many versions of HTML:</p>
+        <ul>
+            <li><strong>1989:</strong> WorldWideWeb invented by Tim Berners-Lee.</li>
+            <li><strong>1991:</strong> HTML invented by Tim Berners-Lee.</li>
+            <li><strong>1993:</strong> HTML+ drafted by Dave Raggett.</li>
+            <li><strong>1995:</strong> HTML Working Group defines HTML 2.0.</li>
+            <li><strong>1997:</strong> W3C Recommended HTML 3.2.</li>
+            <li><strong>1999:</strong> W3C Recommended HTML 4.01.</li>
+            <li><strong>2000:</strong> W3C Recommended XHTML 1.0.</li>
+            <li><strong>2004:</strong> WHATWG (Web Hypertext Application Technology Working Group) formed.</li>
+            <li><strong>2008:</strong> HTML5 WHATWG (Web Hypertext Application Technology Working Group) First Public Draft.</li>
+            <li><strong>2012:</strong> HTML5 WHATWG Living Standard.</li>
+            <li><strong>2014:</strong> HTML5 W3C Final Recommendation HTML5.</li>
+        </ul>
+    </section>
+
+    <!-- Section: What is New in HTML5? -->
+    <section id="html5-new">
+        <h2>What is New in HTML5?</h2>
+        <p>The DOCTYPE declaration for HTML5 is very simple:</p>
+        <pre>&lt;!DOCTYPE html&gt;</pre>
+    </section>
+
+    <!-- Section: HTML Meaning -->
+    <section id="html-meaning">
+        <h2>HTML Meaning</h2>
+        <p><strong>Hypertext</strong> means that the document contains links that allow the reader to jump to other places in the document or to another document altogether.</p>
+        <p><strong>Markup Language</strong> is a way that computers speak to each other to control how text is processed and presented. To do this, HTML uses two things: tags and attributes.</p>
+    </section>
+
+    <!-- Section: Tools for HTML -->
+    <section id="html-tools">
+        <h2>Tools Needed to Make an HTML Page</h2>
+        <p>HTML Editor: It's a straightforward tool where every piece of HTML content must be written. You can use any text editor of your choice. In this tutorial, we're using Visual Studio Code because it's lightweight and open-source.</p>
+        <p>Popular editors for HTML development include text editors like Notepad++ and TextEdit, code editors such as Sublime Text and Visual Studio Code, and full-fledged IDEs like WebStorm and Eclipse.</p>
+    </section>
+
+    <!-- Section: Saving HTML Files -->
+    <section id="html-save">
+        <h2>How to Save HTML File?</h2>
+        <p>Let us take an example of a Notepad text editor and show a step-by-step procedure to save and open an HTML file:</p>
+        <ul>
+            <li><strong>Step 1:</strong> Open Notepad.</li>
+            <li><strong>Step 2:</strong> Write HTML code.</li>
+            <li><strong>Step 3:</strong> Save the HTML file with the .html extension and UTF-8 encoding.</li>
+        </ul>
+    </section>
+
+    <!-- Section: File Extensions -->
+    <section id="file-extensions">
+        <h2>What is a File Extension?</h2>
+        <p>A file extension is a three or four-letter code that appears at the end of a filename and indicates the type of file it is. For example, .txt stands for text files, .jpg stands for image files, and .html stands for web pages.</p>
+    </section>
+
+    <!-- Section: Program -->
+    <section id="program">
+        <h2>What is a Program?</h2>
+        <p>A program is a piece of code or set of instructions that tells a computer how to perform a task. Programs are written by humans and subsequently read by computing devices.</p>
+    </section>
+    </div>
 
 
 <footer style="position: fixed; bottom: 0; width: 100%; text-align: center;"><h4 style="color: red; margin: 0;">&copy; 2025 All rights reserved.</h4></footer>
