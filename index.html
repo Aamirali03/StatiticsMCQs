@@ -1,372 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Government Girls College</title>
-    <!-- Link to Bootstrap CSS (CDN) -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome Icons CDN (optional) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-	        /* Global Styles */
-        body {
-            font-size: 1rem; /* 1rem for scalable font size */
-            line-height: 1.5;
-            margin: 0;
-            padding: 0;
-            background: #E0FFFF;
-        }
-        /* Custom Navbar Color and Padding */
-        .navbar-custom {
-            background-color:  #FFF8DC; /* Blue background */
-        }
-.navbar a:hover {
-            background-color: #FFFFFF;
-            border-radius: 0.25rem;
-        }
-     
-        /* Main Content */
-        .content {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Government Girls College</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* Base Styling */
+    body {
+      margin: 0;
+      padding-top: 70px; /* space for fixed navbar */
+      padding-bottom: 60px; /* space for footer */
+      background: #E0FFFF;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
 
-	  /* Sidebar Styling */
-        .sidebar {
-            position: fixed;
-            top: 4rem; /* Offset to account for the navbar */
-            left: 0;
-            width: 250px;
-            background-color: #3f8e41;
-            height: 100vh;
-			
-            padding: 1rem 0;
-            z-index: 20;
-            transition: all 0.3s ease;
-			 overflow-y: auto; /* Make sidebar scrollable */
-        }
+    /* Navbar Styling */
+    .navbar-custom {
+      background-color: #FFF8DC;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1030;
+    }
 
-        .sidebar .brand {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: white;
-            text-align: center;
-            margin-bottom: 1rem;
-        }
+    .navbar a:hover {
+      background-color: #ffffff;
+      border-radius: 0.25rem;
+    }
 
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-        }
+    /* Sidebar Styling */
+    .sidebar {
+      position: fixed;
+      top: 70px; /* below fixed navbar */
+      left: 0;
+      width: 250px;
+      height: 100%;
+      background-color: #3f8e41;
+      color: white;
+      padding: 1rem 0;
+      overflow-y: auto;
+      z-index: 100;
+    }
 
-        .sidebar a {
-            text-decoration: none;
-            color: white;
-            font-size: 1.1rem;
-            padding: 0.1rem;
-            display: block;
-            transition: background-color 0.3s;
-        }
+    .sidebar .brand {
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
 
-        .sidebar a:hover {
-            background-color: #FF0000;
-        }
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
 
-        /* Main Content Styling */
-        .content {
-            margin-left: 250px; /* Adjust for sidebar */
-            padding: 20px;
-            transition: margin-left 0.3s ease;
-        }
+    .sidebar a {
+      text-decoration: none;
+      color: white;
+      display: block;
+      padding: 0.5rem 1rem;
+      transition: background-color 0.3s;
+    }
 
-        /* Smooth Scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
+    .sidebar a:hover {
+      background-color: #FF0000;
+    }
 
-        /* Mobile Responsive Styling */
-        @media (max-width: 768px) {
-            body {
-                margin-top: 5rem;
-            }
+    /* Content Styling */
+    .content {
+      margin-left: 250px;
+      padding: 2rem;
+    }
 
-            .navbar {
-                padding: 1rem 0.5rem;
-            }
+    /* Intro Section */
+    .intro-section h2 {
+      text-align: center;
+      color: red;
+      font-size: 2rem;
+    }
 
-            /* Sidebar always visible on mobile */
-            .sidebar {
-                position: fixed;
-                top: 4rem;
-                left: 0;
-                width: 120px;  /* Same width as desktop layout */
-                height: 100vh;
-                background-color: #3f8e41;
-                z-index: 20;
-                transition: none;  /* Disable transition */
-				overflow-y: auto; /* Make sidebar scrollable */
-            }
+    /* Footer Styling */
+    footer {
+      background-color: #dad4d3;
+      color: #333;
+      padding: 2rem 0;
+      text-align: center;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+      margin-top: 3rem;
+    }
 
-            /* Content margin adjustment for mobile */
-            .content {
-                margin-left: 120px; /* Same margin as desktop */
-            }
-           .sidebar.open {
-                left: 0; /* Show sidebar when open */
-            }
-            .sidebar a {
-                font-size: 1rem;
-                padding: 0.1rem;
-            }
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 120px;
+      }
 
-            /* Navbar Toggler */
-            .navbar-toggler {
-                background-color: #333;
-            }
-        }
+      .content {
+        margin-left: 120px;
+      }
 
-        /* Tablet and Laptop Responsive Styling */
-        @media (min-width: 768px) and (max-width: 1024px) {
-            .sidebar {
-                width: 150px;
-            }
+      body {
+        padding-top: 70px;
+      }
 
-            .content {
-                margin-left: 250px; /* Adjusted for sidebar */
-            }
-        }
+      .sidebar a {
+        font-size: 0.9rem;
+        padding: 0.4rem;
+      }
+    }
 
-        /* Desktop Styling */
-        @media (min-width: 1025px) {
-            .sidebar {
-                width: 150px;
-            }
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .sidebar {
+        width: 180px;
+      }
 
-            .content {
-                margin-left: 250px; /* Adjusted for sidebar */
-            }
-        }  
-
-
-        /* Footer */
-        footer {
-            background-color: #1d4ed8;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            .lecturer {
-                width: 100%;
-                margin-bottom: 10px;
-            }
-        }
-		 /* Footer styles */
-        footer {
-            background-color: #dad4d3;
-            color: #333;
-            padding: 2rem 0;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-            margin-top: auto;
-            text-align: center;
-        }
-
- 
-    </style>
+      .content {
+        margin-left: 180px;
+      }
+    }
+  </style>
 </head>
-<body class="bg-gradient-to-br from-teal-300 via-indigo-200 to-blue-300">
 
-    <!-- Bootstrap Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light navbar-custom p-2">
-        <div class="container-fluid">
-            <a class="navbar-brand text-black" href="index.html">my account</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link text-black active" aria-current="page" href="index.html">HOME</a>
-                    </li>
-			
-                    <li class="nav-item">
-                        <a class="nav-link text-black" href="online-test.html">ONLINE TEST</a>
-                    </li>
-                      
-                </ul>
-            </div>
-        </div>
-    </nav>
+<body>
 
-    <!-- Introduction Section -->
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light navbar-custom p-2">
+    <div class="container-fluid">
+      <a class="navbar-brand text-black" href="#">My Account</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link text-black active" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-black" href="#">Online Test</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="brand">WebDev</div>
+    <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#types">Types</a></li>
+      <li><a href="#front-end">Front-End</a></li>
+      <li><a href="#back-end">Back-End</a></li>
+      <li><a href="#full-stack">Full-Stack</a></li>
+      <li><a href="#languages">Languages</a></li>
+      <li><a href="#html-overview">HTML Overview</a></li>
+      <li><a href="#html-benefits">Why HTML?</a></li>
+      <li><a href="#html5-introduction">HTML5 Intro</a></li>
+      <li><a href="#html-history">HTML History</a></li>
+      <li><a href="#html5-new">What's New?</a></li>
+      <li><a href="#html-meaning">HTML Meaning</a></li>
+      <li><a href="#html-tools">Tools</a></li>
+      <li><a href="#html-save">Save HTML</a></li>
+      <li><a href="#file-extensions">Extensions</a></li>
+      <li><a href="#program">What is a Program?</a></li>
+    </ul>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
     <div class="intro-section">
-        <h2 style="text-align: center; color: red; font-size: 2rem">Welcome to my website </h2><br>
-          </div>
-	  <!-- Sidebar Navigation -->
-    <div class="sidebar">
-        <div class="brand">WebDev</div>
-        <ul>
-            <li><a href="#overview">What is Web Development?</a></li>
-            <li><a href="#types">Types of Web Development</a></li>
-            <li><a href="#front-end">Front-end Development</a></li>
-            <li><a href="#back-end">Back-end Development</a></li>
-            <li><a href="#full-stack">Full-stack Development</a></li>
-            <li><a href="#languages">Languages</a></li>
-            <li><a href="#html-overview">HTML Overview</a></li>
-			<li><a href="#html-benefits">Why HTML is Great for Beginners</a></li>
-        <li><a href="#html5-introduction">HTML5 Introduction</a></li>
-        <li><a href="#html-history">History of HTML</a></li>
-		
-		<li><a href="#html5-new">What is New in HTML5?</a></li>
-		<li><a href="#html-meaning">Why HTML is Great for Beginners</a></li>
-        <li><a href="#html-tools">Tools</a></li>
-        <li><a href="#html-save">Save HTML file</a></li>
-		<li><a href="#file-extensions">File Extensions</a></li>
-        <li><a href="#program">What is a Program?</a></li>
-		
-        </ul>
+      <h2>Welcome to my website</h2>
     </div>
 
-    <!-- Main Content Area -->
-    <div class="content">
-        <header>
-            <h1 style="text-align: center; color: black; "><br>Web Development<br></h1>
-        </header>
+    <header>
+      <h1 style="text-align: center; color: black;">Web Development</h1>
+    </header>
 
-        <section id="overview">
-            <h2>What is Web Development?</h2>
-            <p>Web development, also known as website development, refers to the tasks associated with creating, building, and maintaining websites and web applications that run online on a browser.</p>
-        </section>
+    <section id="overview">
+      <h2>What is Web Development?</h2>
+      <p>Web development refers to the creation and maintenance of websites and web applications that run online.</p>
+    </section>
 
-        <section id="types">
-            <h2>Types of Web Development</h2>
-            <p>There are three main types of web development: front-end development, back-end development, and full-stack development.</p>
-        </section>
+    <section id="types">
+      <h2>Types of Web Development</h2>
+      <p>Front-end, back-end, and full-stack development are the three main areas.</p>
+    </section>
 
-        <section id="front-end">
-            <h2>Front-end Web Development</h2>
-            <p>The user-facing side of a website. Front-end web developers ensure that visitors can easily interact with and navigate through the website.</p>
-        </section>
+    <section id="front-end">
+      <h2>Front-end Web Development</h2>
+      <p>The user-facing part of a website. It handles what users see and interact with.</p>
+    </section>
 
-        <section id="back-end">
-            <h2>Back-end Web Development</h2>
-            <p>The server side of a website. In other words, this is the behind-the-scenes work that creates a website’s structure. The front end would not exist without the back end.</p>
-        </section>
+    <section id="back-end">
+      <h2>Back-end Web Development</h2>
+      <p>This is the server-side logic that powers the website behind the scenes.</p>
+    </section>
 
-        <section id="full-stack">
-            <h2>Full-stack Web Development</h2>
-            <p>This takes into consideration the entirety of a website, including back-end and front-end development.</p>
-        </section>
+    <section id="full-stack">
+      <h2>Full-stack Web Development</h2>
+      <p>Combines front-end and back-end development into a single role or project.</p>
+    </section>
 
-        <section id="languages">
-            <h2>Common Programming Languages in Web Development</h2>
-            <ul>
-                <li>HTML (Hypertext Markup Language)</li>
-                <li>CSS (Cascading Style Sheets)</li>
-                <li>JavaScript</li>
-            </ul>
-        </section>
+    <section id="languages">
+      <h2>Languages Used in Web Development</h2>
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+      </ul>
+    </section>
 
-        <section id="html-overview">
-            <h2>HTML Overview</h2>
-            <p>HTML is the standard language used to create and design webpages. It's the most fundamental markup language used for structuring content on the web.</p>
-        </section>
-		
-    <!-- Section: Why HTML is Great for Beginners -->
+    <section id="html-overview">
+      <h2>HTML Overview</h2>
+      <p>HTML is the standard markup language for creating web pages.</p>
+    </section>
+
     <section id="html-benefits">
-        <h2>Why HTML is Great for Beginners</h2>
-        <ul>
-            <li><strong>Simple Syntax:</strong> HTML uses tags to define elements, which are easy to understand and use.</li>
-            <li><strong>Immediate Results:</strong> You can see the results of your HTML code almost instantly in a web browser.</li>
-        </ul>
+      <h2>Why HTML is Great for Beginners</h2>
+      <ul>
+        <li>Simple syntax and structure</li>
+        <li>Instant results in browser</li>
+      </ul>
     </section>
 
-    <!-- Section: What is HTML? -->
-    <section id="html-definition">
-        <h2>What is HTML?</h2>
-        <p>HTML is used to structure content on the web. It tells the web browser how to display text, images, and other elements on a webpage.</p>
-        <p><strong>HTML = Like A, B, C</strong></p>
-    </section>
-
-    <!-- Section: HTML5 Introduction -->
     <section id="html5-introduction">
-        <h2>HTML5 Introduction</h2>
-        <p>HTML5 is a markup language used for structuring and presenting content on the World Wide Web. It is the fifth and current version of the HTML standard. HTML5 includes detailed processing models to encourage more interoperable implementations; it extends, improves, and rationalizes the markup available for documents, and introduces markup and application programming interfaces (APIs) for complex web applications.</p>
+      <h2>HTML5 Introduction</h2>
+      <p>HTML5 is the latest version of HTML with support for multimedia, APIs, and cleaner syntax.</p>
     </section>
 
-    <!-- Section: History of HTML -->
     <section id="html-history">
-        <h2>History of HTML</h2>
-        <p>Since the early days of the web, there have been many versions of HTML:</p>
-        <ul>
-            <li><strong>1989:</strong> WorldWideWeb invented by Tim Berners-Lee.</li>
-            <li><strong>1991:</strong> HTML invented by Tim Berners-Lee.</li>
-            <li><strong>1993:</strong> HTML+ drafted by Dave Raggett.</li>
-            <li><strong>1995:</strong> HTML Working Group defines HTML 2.0.</li>
-            <li><strong>1997:</strong> W3C Recommended HTML 3.2.</li>
-            <li><strong>1999:</strong> W3C Recommended HTML 4.01.</li>
-            <li><strong>2000:</strong> W3C Recommended XHTML 1.0.</li>
-            <li><strong>2004:</strong> WHATWG (Web Hypertext Application Technology Working Group) formed.</li>
-            <li><strong>2008:</strong> HTML5 WHATWG (Web Hypertext Application Technology Working Group) First Public Draft.</li>
-            <li><strong>2012:</strong> HTML5 WHATWG Living Standard.</li>
-            <li><strong>2014:</strong> HTML5 W3C Final Recommendation HTML5.</li>
-        </ul>
+      <h2>History of HTML</h2>
+      <p>HTML has evolved from its early beginnings in the 1990s to HTML5 today.</p>
     </section>
 
-    <!-- Section: What is New in HTML5? -->
     <section id="html5-new">
-        <h2>What is New in HTML5?</h2>
-        <p>The DOCTYPE declaration for HTML5 is very simple:</p>
-        <pre>&lt;!DOCTYPE html&gt;</pre>
+      <h2>What is New in HTML5?</h2>
+      <p>The new `<!DOCTYPE html>` is simpler, and many new elements and APIs have been introduced.</p>
     </section>
 
-    <!-- Section: HTML Meaning -->
     <section id="html-meaning">
-        <h2>HTML Meaning</h2>
-        <p><strong>Hypertext</strong> means that the document contains links that allow the reader to jump to other places in the document or to another document altogether.</p>
-        <p><strong>Markup Language</strong> is a way that computers speak to each other to control how text is processed and presented. To do this, HTML uses two things: tags and attributes.</p>
+      <h2>HTML Meaning</h2>
+      <p>HTML stands for HyperText Markup Language — used to structure content on the web.</p>
     </section>
 
-    <!-- Section: Tools for HTML -->
     <section id="html-tools">
-        <h2>Tools Needed to Make an HTML Page</h2>
-        <p>HTML Editor: It's a straightforward tool where every piece of HTML content must be written. You can use any text editor of your choice. In this tutorial, we're using Visual Studio Code because it's lightweight and open-source.</p>
-        <p>Popular editors for HTML development include text editors like Notepad++ and TextEdit, code editors such as Sublime Text and Visual Studio Code, and full-fledged IDEs like WebStorm and Eclipse.</p>
+      <h2>Tools for HTML</h2>
+      <p>Use editors like Notepad++, VS Code, or Sublime Text to write HTML code.</p>
     </section>
 
-    <!-- Section: Saving HTML Files -->
     <section id="html-save">
-        <h2>How to Save HTML File?</h2>
-        <p>Let us take an example of a Notepad text editor and show a step-by-step procedure to save and open an HTML file:</p>
-        <ul>
-            <li><strong>Step 1:</strong> Open Notepad.</li>
-            <li><strong>Step 2:</strong> Write HTML code.</li>
-            <li><strong>Step 3:</strong> Save the HTML file with the .html extension and UTF-8 encoding.</li>
-        </ul>
+      <h2>Saving HTML Files</h2>
+      <ul>
+        <li>Use `.html` as the file extension.</li>
+        <li>Ensure UTF-8 encoding for compatibility.</li>
+      </ul>
     </section>
 
-    <!-- Section: File Extensions -->
     <section id="file-extensions">
-        <h2>What is a File Extension?</h2>
-        <p>A file extension is a three or four-letter code that appears at the end of a filename and indicates the type of file it is. For example, .txt stands for text files, .jpg stands for image files, and .html stands for web pages.</p>
+      <h2>File Extensions</h2>
+      <p>Examples include `.html`, `.css`, `.js`, `.jpg`, etc.</p>
     </section>
 
-    <!-- Section: Program -->
     <section id="program">
-        <h2>What is a Program?</h2>
-        <p>A program is a piece of code or set of instructions that tells a computer how to perform a task. Programs are written by humans and subsequently read by computing devices.</p>
+      <h2>What is a Program?</h2>
+      <p>A set of instructions written in code to perform tasks on a computer.</p>
     </section>
-    </div>
+  </div>
 
+  <!-- Footer -->
+  <footer>
+    <h4 style="color: red; margin: 0;">&copy; 2025 All rights reserved.</h4>
+  </footer>
 
-<footer style="position: fixed; bottom: 0; width: 100%; text-align: center;"><h4 style="color: red; margin: 0;">&copy; 2025 All rights reserved.</h4></footer>
-
-<!-- Bootstrap JS and Popper.js (CDN) -->
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
